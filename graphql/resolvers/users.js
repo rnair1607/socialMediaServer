@@ -76,6 +76,7 @@ module.exports = {
 
       const user = await User.findOne({ username });
 
+      // console.log(user);
       if (!user) {
         errors.general = "User not found";
         throw new UserInputError("User not found", { errors });
@@ -99,7 +100,9 @@ module.exports = {
       );
 
       return {
-        ...user.doc,
+        email: user.email,
+        username: user.username,
+        createdAt: user.createdAt,
         id: user._id,
         token,
       };
