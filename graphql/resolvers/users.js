@@ -66,7 +66,9 @@ module.exports = {
       );
 
       return {
-        ...res.doc,
+        email: res.email,
+        username: res.username,
+        createdAt: res.createdAt,
         id: res._id,
         token,
       };
